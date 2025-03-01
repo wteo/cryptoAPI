@@ -1,0 +1,111 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+  padding: 20px;
+}
+
+/* Container styling */
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+select,
+input[type="number"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Remove number input spinners */
+}
+
+/* Button styling */
+button {
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:active {
+  background-color: #1c5b8f;
+}
+
+/* Result section styling */
+#result {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border-radius: 4px;
+  text-align: center;
+}
+
+#result h2 {
+  color: #2980b9;
+}
+
+#result p {
+  font-size: 18px;
+  color: #333;
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  label,
+  select,
+  input[type="number"],
+  button {
+    font-size: 14px;
+  }
+}
