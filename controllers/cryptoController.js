@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 export async function fetchCryptoData(req, res) {
   try {
-    const amount = req.query.amount || 100; // Default to 100 if not provided
+    const amount = req.query.amount || 1; // Default to 100 if not provided
     const symbol = req.query.symbol || 'BTC'; // Default to BTC if not provided
     const convert = req.query.convert || 'AUD'; // Default to AUD if not provided
 
