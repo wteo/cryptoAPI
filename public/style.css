@@ -1,119 +1,262 @@
-/* General reset */
+/* Base styles and variables */
+:root {
+  --primary-color: #6366f1;
+  --primary-hover: #4f46e5;
+  --text-color: #333;
+  --bg-color: #f9fafb;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --radius: 8px;
+}
+
+/* Reset and global styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f7f6;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
   padding: 20px;
 }
 
-/* Container styling */
 .container {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
+/* Typography */
 h1 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
   text-align: center;
-  color: #2c3e50;
-  margin-bottom: 20px;
+  font-size: 1.8rem;
 }
 
-/* Form styling */
+h2 {
+  font-size: 1.2rem;
+  margin: 1.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Form elements */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 label {
-  font-weight: bold;
-  color: #555;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  display: block;
 }
 
 select,
-input[type="number"] {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+input {
   width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background-color: white;
+  font-size: 1rem;
+  transition: border-color 0.2s;
 }
 
-input[type="number"] {
-  -moz-appearance: textfield; /* Remove number input spinners */
+select:focus,
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
-/* Button styling */
 button {
-  background-color: #3498db;
+  background-color: var(--primary-color);
   color: white;
-  font-size: 16px;
-  padding: 10px;
   border: none;
-  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: var(--radius);
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s;
+  margin-top: 0.5rem;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: var(--primary-hover);
 }
 
-button:active {
-  background-color: #1c5b8f;
-}
-
-/* Result section styling */
+/* Results section */
 #result {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #ecf0f1;
-  border-radius: 4px;
-  text-align: center;
+  margin-top: 1.5rem;
 }
 
 .result__container {
+  background-color: rgba(99, 102, 241, 0.1);
+  border-left: 3px solid var(--primary-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
+  align-items: center;
 }
 
-#result h2 {
-  color: #2980b9;
+.result__container p {
+  font-weight: 500;
 }
 
-#result p {
-  font-size: 18px;
-  color: #333;
+.result__delete-button {
+  background-color: transparent;
+  color: var(--error-color);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid var(--error-color);
+  margin-top: 0;
 }
 
-/* Responsive styling */
-@media (max-width: 600px) {
-  .container {
-    padding: 15px;
-    width: 100%;
+.result__delete-button:hover {
+  background-color: var(--error-color);
+  color: white;
+}
+
+/* About section and Version updates */
+.about-section,
+.version-updates {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.about-section h2,
+.version-updates h2 {
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-section p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.version-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.version-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.version-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.version-number {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.version-date {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.version-features {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+.version-features li {
+  position: relative;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.version-features li::before {
+  content: "•";
+  position: absolute;
+  left: -1rem;
+  color: var(--primary-color);
+}
+
+/* Toggle for sections */
+.section-toggle {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-toggle:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.section-toggle::after {
+  content: "▼";
+  font-size: 0.75rem;
+}
+
+.section-toggle.collapsed::after {
+  content: "►";
+}
+
+.collapsible-content {
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+
+.collapsed + .collapsible-content {
+  max-height: 0;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .container, .about-section, .version-updates {
+    padding: 1.5rem;
   }
-
-  h1 {
-    font-size: 24px;
+  
+  body {
+    padding: 10px;
   }
-
-  label,
-  select,
-  input[type="number"],
-  button {
-    font-size: 14px;
+  
+  .version-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .version-date {
+    margin-top: 0.25rem;
   }
 }

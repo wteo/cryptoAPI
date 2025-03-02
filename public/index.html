@@ -14,12 +14,13 @@
         <select id="cryptoSymbol" name="cryptoSymbol">
           <option value="BTC">Bitcoin (BTC)</option>
           <option value="ETH">Ethereum (ETH)</option>
+          <option value="SOL">Solana (SOL)</option>
           <!-- Add more cryptocurrencies as needed -->
         </select>
 
         <label for="fiatCurrency">Select Fiat Currency:</label>
         <select id="fiatCurrency" name="fiatCurrency">
-          <!-- Add more fiat currencies as needed -->
+          <!-- Will be populated by JavaScript -->
         </select>
 
         <label for="amount">Amount (in crypto):</label>
@@ -37,11 +38,10 @@
       </form>
 
       <div id="result">
-        <!-- The result will be displayed here -->
-         <h2>Conversion Result(s)</h2>
+        <h2>Conversion Result(s)</h2>
+        <!-- The results will be displayed here -->
       </div>
     </div>
-
     <script src="/script.js"></script>
   </body>
 </html>
