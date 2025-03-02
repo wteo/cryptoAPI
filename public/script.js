@@ -69,10 +69,11 @@ function formatNumberToPrice(amount) {
 }
 
 
-async function submitQuery(event) {
+const results = [];
 
+async function submitQuery(event) {
   event.preventDefault();
-  const result = document.getElementById("result");
+  const resultContainer = document.getElementById("result");
 
   try {
     const { response, data } = await fetchData();
@@ -80,19 +81,42 @@ async function submitQuery(event) {
     const formattedPrice = formatNumberToPrice(price);
 
     if (response.ok) {
-      result.innerHTML = `
-        <h2>Conversion Result</h2>
-        <p>${amount} ${cryptoSymbol} is equal to ${fiatCurrency}$${formattedPrice}</p>
-      `;
-    } else {
-      result.innerHTML = `<p>Error: ${data.error || "Unable to fetch data"}</p>`;
-    }
+      const resultIndex = results.length;
 
+      const resultDiv = document.createElement("div");
+      resultDiv.classList.add("result__container");
+      resultDiv.setAttribute("data-index", resultIndex);
+
+      resultDiv.innerHTML = `
+        <p>${amount} ${cryptoSymbol} = ${fiatCurrency} $${formattedPrice}</p>
+        <button class="result__delete-button">Delete</button>
+      `;
+
+      results.push(resultDiv);
+      resultContainer.appendChild(resultDiv);
+    } else {
+      resultContainer.innerHTML = `<p>Error: ${data.error || "Unable to fetch data"}</p>`;
+    }
   } catch (error) {
     console.error("Error:", error);
-    result.innerHTML ="<p>Failed to fetch conversion data. Please try again later.</p>";
+    resultContainer.innerHTML = "<p>Failed to fetch conversion data. Please try again later.</p>";
   }
-};
+}
+
+
+document.getElementById("result").addEventListener("click", function (event) {
+  if (event.target.classList.contains("result__delete-button")) {
+    const resultDiv = event.target.closest(".result__container"); // Get the closest parent container
+    if (resultDiv) {
+      const index = results.indexOf(resultDiv); // Find its position in the array
+      if (index !== -1) {
+        results.splice(index, 1); // Remove from the results array
+      }
+      resultDiv.remove(); // Remove from the DOM
+    }
+  }
+});
+
 
 populateFiatOptions();
 

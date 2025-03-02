@@ -82,6 +82,14 @@ button:active {
   text-align: center;
 }
 
+.result__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
 #result h2 {
   color: #2980b9;
 }
