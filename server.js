@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cryptoRoutes from "./routes/cryptoRoutes.js";
+import chartRoutes from "./routes/chartRoutes.js";
 
 import { fileURLToPath } from "url";
 import path from "path";
@@ -19,6 +20,9 @@ app.use(express.json());
 
 // Use the crypto routes
 app.use("/convert/", cryptoRoutes);
+
+// The chart routes are ready but commented out for future activation
+app.use("/chart/", chartRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

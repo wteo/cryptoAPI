@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto Price Comparison Chart</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="container chart-container">
+      <h1>Crypto Price Comparison Chart</h1>
+      <form id="chartForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="cryptoSymbol">Select Cryptocurrency:</label>
+            <select id="cryptoSymbol" name="cryptoSymbol">
+              <option value="BTC">Bitcoin (BTC)</option>
+              <option value="ETH">Ethereum (ETH)</option>
+              <option value="SOL">Solana (SOL)</option>
+              <option value="ADA">Cardano (ADA)</option>
+              <option value="XRP">Ripple (XRP)</option>
+              <option value="DOT">Polkadot (DOT)</option>
+              <option value="DOGE">Dogecoin (DOGE)</option>
+              <option value="LINK">Chainlink (LINK)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="timeframe">Select Timeframe:</label>
+            <select id="timeframe" name="timeframe">
+              <option value="1d">24 Hours</option>
+              <option value="7d" selected>7 Days</option>
+              <option value="30d">30 Days</option>
+              <option value="90d">90 Days</option>
+              <option value="1y">1 Year</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Select Fiat Currencies to Compare (2-3):</label>
+          <div class="currency-selection" id="currencySelection">
+            <!-- Currency checkboxes will be added here by JS -->
+          </div>
+        </div>
+
+        <div class="error-message" id="currencyError" style="display: none;">
+          Please select between 2 and 3 currencies to compare.
+        </div>
+
+        <button type="submit">Generate Chart</button>
+      </form>
+
+      <div class="chart-wrapper">
+        <canvas id="priceChart"></canvas>
+      </div>
+
+      <div class="back-link">
+        <a href="/">&larr; Back to Converter</a>
+      </div>
+    </div>
+    <script src="/chart.js"></script>
+  </body>
+</html>
