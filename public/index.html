@@ -9,12 +9,13 @@
   <body>
     <div class="container">
       <h1>Crypto to Fiat Converter</h1>
-
-      <div id="shared-result-container"></div>
-
       <div class="nav-links">
         <a href="#" class="nav-link disabled" title="Coming soon!">View Comparison Charts (Coming Soon)</a>
       </div>
+      
+      <!-- Container for shared results -->
+      <div id="shared-result-container"></div>
+      
       <form id="cryptoForm">
         <label for="cryptoSymbol">Select Cryptocurrency:</label>
         <select id="cryptoSymbol" name="cryptoSymbol">
@@ -47,7 +48,16 @@
         <h2>Conversion Result(s)</h2>
         <!-- The results will be displayed here -->
       </div>
+      
+      <div class="about-link">
+        <a href="/about.html">About this Project</a>
+      </div>
     </div>
+    
+    <footer class="footer">
+      <p>&copy; 2025 Crypto Converter</p>
+    </footer>
+    
     <script src="/script.js"></script>
   </body>
 </html>

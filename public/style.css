@@ -28,6 +28,10 @@ body {
   padding: 20px;
 }
 
+ul {
+  margin-left: 1.5rem;
+}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -45,6 +49,7 @@ body {
 /* Typography */
 h1 {
   color: var(--primary-color);
+  margin-bottom: 1.5rem;
   text-align: center;
   font-size: 1.8rem;
 }
@@ -167,7 +172,7 @@ button:hover {
 }
 
 #shared-result-container {
-  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .shared-result {
@@ -291,7 +296,6 @@ button:hover {
   display: flex;
   justify-content: center;
   margin-bottom: 1.5rem;
-  margin-top: 1.5rem;
 }
 
 .nav-link {
@@ -316,6 +320,39 @@ button:hover {
 
 .nav-link.disabled:hover {
   background-color: #a5a6f6;
+}
+
+/* About link styles */
+.about-link {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.about-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.about-link a:hover {
+  text-decoration: underline;
+  color: var(--primary-hover);
+}
+
+.connect-links a {
+  padding-right: 1.5rem;
+}
+
+/* Footer styles */
+.footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  color: #6b7280;
+  font-size: 0.875rem;
 }
 
 /* Responsive design */
